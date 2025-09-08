@@ -39,7 +39,7 @@ class PlaylistView @JvmOverloads constructor(
         set(value) {
             if (field == value) return
             field = value
-            if (value == null) {
+            if (value == null || value.groups.isEmpty()) {
                 rvChannels.adapter = null
                 tvGroupName.text = null
                 btnPageDown.visibility = GONE
@@ -68,8 +68,10 @@ class PlaylistView @JvmOverloads constructor(
     private var currentPage: Int = 0
         set(value) {
             field = value
-            val group = playlist!!.groups[value]
-            setCurrentGroup(group)
+            if (playlist != null && playlist!!.groups.isNotEmpty()) {
+                val group = playlist!!.groups[value]
+                setCurrentGroup(group)
+            }
         }
     var onChannelSelectCallback: ((Channel) -> Unit)? = null
 
