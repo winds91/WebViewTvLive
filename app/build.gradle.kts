@@ -5,19 +5,20 @@ plugins {
 
 android {
     namespace = "com.vasthread.webviewtv"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.vasthread.webviewtv"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 6
         versionName = "1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters += listOf("x86_64")
+            abiFilters += listOf("arm64-v8a")
+            //abiFilters += listOf("arm64-v8a","armeabi-v7a","x86_64","x86")
         }
     }
 
@@ -33,6 +34,17 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    applicationVariants.all {
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            output.outputFileName = if (buildType.name == "release") {
+                "WebViewTV.apk"
+            } else {
+                "WebViewTV_debug.apk"
+            }
+        }
     }
 
 }

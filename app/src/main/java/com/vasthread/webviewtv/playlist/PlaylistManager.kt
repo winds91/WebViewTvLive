@@ -28,7 +28,10 @@ object PlaylistManager {
     private val gson = GsonBuilder().setPrettyPrinting().create()!!
     private val jsonTypeToken = object : TypeToken<List<Channel>>() {}
     private val playlistFile = File(application.filesDir, "playlist.json")
-    private val builtInPlaylists = listOf<Pair<String, String>>()
+    private val builtInPlaylists = listOf(
+        Pair("中央&湖南", "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/app/channels/2.0/%E5%A4%AE%E8%A7%86%26%E6%B9%96%E5%8D%97.json"),
+        Pair("完整", "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/app/channels/2.0/%E5%AE%8C%E6%95%B4.json"),
+    )
 
     var onPlaylistChange: ((Playlist) -> Unit)? = null
     var onUpdatePlaylistJobStateChange: ((Boolean) -> Unit)? = null
@@ -99,7 +102,10 @@ object PlaylistManager {
         return Playlist.createFromAllChannels("default", channels)
     }
 
-    private fun loadBuiltInPlaylist() = createPlaylistFromJson("[]")
+    private fun loadBuiltInPlaylist(): Playlist {
+        val json = application.assets.open("default_playlist.json").bufferedReader().use(BufferedReader::readText)
+        return createPlaylistFromJson(json)
+    }
 
     fun loadPlaylist(): Playlist {
         return try {
