@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.vasthread.webviewtv"
-        minSdk = 21
+        minSdk = 19
         targetSdk = 36
         versionCode = 6
         versionName = "1.6"
@@ -17,8 +17,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters += listOf("arm64-v8a")
-            //abiFilters += listOf("arm64-v8a","armeabi-v7a","x86_64","x86")
+            //abiFilters += listOf("arm64-v8a")
+            abiFilters += listOf("arm64-v8a","armeabi-v7a","x86_64","x86")
         }
     }
 
@@ -50,14 +50,14 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.15.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.tencent.tbs:tbssdk:44286")
     implementation("com.tencent.bugly:crashreport:latest.release")
     implementation("com.github.JessYanCoding:AndroidAutoSize:v1.2.1")
     implementation("com.google.code.gson:gson:2.11.0")
-    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:okhttp:3.12.13")
     implementation("org.apache.commons:commons-lang3:3.0")
 }

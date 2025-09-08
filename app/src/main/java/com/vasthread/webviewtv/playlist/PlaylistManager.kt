@@ -98,9 +98,9 @@ object PlaylistManager {
                 try {
                     val request = Request.Builder().url(getPlaylistUrl()).get().build()
                     val response = client.newCall(request).execute()
-                    if (!response.isSuccessful) throw Exception("Response code ${response.code}")
+                    if (!response.isSuccessful) throw Exception("Response code ${response.code()}")
 
-                    val remote = response.body!!.string()
+                    val remote = response.body()!!.string()
                     val local = runCatching { playlistFile.readText() }.getOrNull()
                     if (remote != local) {
                         playlistFile.writeText(remote)
