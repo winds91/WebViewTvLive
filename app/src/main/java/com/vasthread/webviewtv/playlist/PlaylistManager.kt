@@ -49,11 +49,11 @@ object PlaylistManager {
     private val builtInPlaylists = listOf(
         Pair(
             "完整",
-            "https://raw.githubusercontent.com/wumingluren/WebViewTvLive/refs/heads/main/app/channels/2.0/%E5%AE%8C%E6%95%B4.json"
+            "https://raw.githubusercontent.com/winds91/WebViewTvLive/main/app/channels/2.0/%E5%AE%8C%E6%95%B4.json"
         ),
         Pair(
             "央视&湖南",
-            "https://raw.githubusercontent.com/wumingluren/WebViewTvLive/refs/heads/main/app/channels/2.0/%E5%A4%AE%E8%A7%86%26%E6%B9%96%E5%8D%97.json"
+            "https://raw.githubusercontent.com/winds91/WebViewTvLive/main/app/channels/2.0/%E5%A4%AE%E8%A7%86%26%E6%B9%96%E5%8D%97.json"
         ),
     )
 
