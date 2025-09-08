@@ -28,7 +28,34 @@ object PlaylistManager {
     private val gson = GsonBuilder().setPrettyPrinting().create()!!
     private val jsonTypeToken = object : TypeToken<List<Channel>>() {}
     private val playlistFile = File(application.filesDir, "playlist.json")
-    private val builtInPlaylists = listOf<Pair<String, String>>()
+    /*private val builtInPlaylists = listOf(
+        Pair(
+            "中国大陆",
+            "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/data/3/china_mainland.dat"
+        ),
+        Pair(
+            "央视&湖南",
+            "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/data/3/cctv_and_hunan_tv_single.dat"
+        ),
+        Pair(
+            "央视&广东",
+            "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/data/3/cctv_and_guangdong_tv_single.dat"
+        ),
+        Pair(
+            "央视&卫视",
+            "https://raw.githubusercontent.com/hxh19950701/WebViewTvLive/main/data/3/cctv_and_satellite_tv_single.dat"
+        ),
+    )*/
+    private val builtInPlaylists = listOf(
+        Pair(
+            "完整",
+            "https://raw.githubusercontent.com/wumingluren/WebViewTvLive/refs/heads/main/app/channels/2.0/%E5%AE%8C%E6%95%B4.json"
+        ),
+        Pair(
+            "央视&湖南",
+            "https://raw.githubusercontent.com/wumingluren/WebViewTvLive/refs/heads/main/app/channels/2.0/%E5%A4%AE%E8%A7%86%26%E6%B9%96%E5%8D%97.json"
+        ),
+    )
 
     var onPlaylistChange: ((Playlist) -> Unit)? = null
     var onUpdatePlaylistJobStateChange: ((Boolean) -> Unit)? = null
